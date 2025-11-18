@@ -1,0 +1,150 @@
+================================================================================
+HYBRID MODEL TRAINING
+Clinical BERT Embeddings + Structured Features + LightGBM
+================================================================================
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+✓ Logged in to HuggingFace as AKG2
+
+Loading embedding model on cuda...
+📦 Loading trained model from HuggingFace: AKG2/mtl-readmission-v1
+⚠ Failed to load from HuggingFace: AKG2/mtl-readmission-v1 is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`
+  Falling back to base model...
+✓ Model loaded successfully
+✓ Device: cuda
+✓ Model: emilyalsentzer/Bio_ClinicalBERT
+
+================================================================================
+LOADING DATA
+================================================================================
+✓ Loaded admissions: (374139, 16)
+✓ Final dataset: (374139, 18)
+  - Readmission rate: 0.202
+
+================================================================================
+PREPARING STRUCTURED FEATURES
+================================================================================
+✓ Encoded insurance: 6 categories
+✓ Encoded admission_type: 9 categories
+✓ Encoded admission_location: 11 categories
+
+✓ Structured features shape: (374139, 3)
+  Features: ['insurance_encoded', 'admission_type_encoded', 'admission_location_encoded']
+
+================================================================================
+EXTRACTING EMBEDDINGS
+================================================================================
+100%|███████████████████████████████████████████████████████████| 23384/23384 [32:00<00:00, 12.18it/s]
+✓ Extracted embeddings: (374139, 768)
+
+================================================================================
+BUILDING HYBRID MODEL
+================================================================================
+✓ Combined features shape: (374139, 771)
+  - Text embeddings: 768 features
+  - Structured features: 3 features
+
+✓ Train size: 299311
+✓ Test size: 74828
+
+✓ Class distribution:
+  - Negative: 238733
+  - Positive: 60578
+  - Scale pos weight: 3.94
+
+================================================================================
+TRAINING LIGHTGBM
+================================================================================
+Training until validation scores don't improve for 50 rounds
+[50]    train's auc: 0.663648   valid's auc: 0.642108
+[100]   train's auc: 0.68267    valid's auc: 0.649838
+[150]   train's auc: 0.697877   valid's auc: 0.654091
+[200]   train's auc: 0.710839   valid's auc: 0.65649
+[250]   train's auc: 0.722107   valid's auc: 0.657585
+[300]   train's auc: 0.733133   valid's auc: 0.658138
+[350]   train's auc: 0.743379   valid's auc: 0.659154
+[400]   train's auc: 0.753063   valid's auc: 0.659796
+[450]   train's auc: 0.762214   valid's auc: 0.660115
+[500]   train's auc: 0.770749   valid's auc: 0.660068
+Did not meet early stopping. Best iteration is:
+[466]   train's auc: 0.765261   valid's auc: 0.66023
+
+================================================================================
+EVALUATION RESULTS
+================================================================================
+
+📊 HYBRID MODEL PERFORMANCE:
+  - ROC-AUC: 0.6602
+  - AUPRC: 0.3334
+  - Accuracy: 0.6386
+  - F1-Score: 0.3871
+
+                precision    recall  f1-score   support
+
+Not Readmitted       0.86      0.66      0.74     59684
+    Readmitted       0.29      0.56      0.39     15144
+
+      accuracy                           0.64     74828
+     macro avg       0.58      0.61      0.57     74828
+  weighted avg       0.74      0.64      0.67     74828
+
+
+================================================================================
+TOP 20 FEATURE IMPORTANCES
+================================================================================
+  feature   importance
+embed_606 76202.794250
+ struct_1 26500.920620
+ struct_0 22087.722939
+embed_262 16267.357771
+embed_761 15079.609570
+embed_138  6858.509604
+embed_533  5690.286047
+embed_340  5395.492985
+embed_562  4699.190350
+embed_123  4424.619896
+ embed_79  4372.753727
+embed_700  4326.636917
+embed_699  4157.588911
+embed_257  4095.934849
+embed_492  3998.724068
+embed_679  3911.676121
+embed_336  3899.298428
+  embed_6  3788.804195
+ embed_64  3737.222902
+ embed_97  3714.225323
+
+✓ Structured features contribute 6.1% of total importance
+
+================================================================================
+SAVING HYBRID MODEL ARTIFACTS
+================================================================================
+✓ Saved: lgbm_model.txt
+✓ Saved: scaler_combined.pkl, scaler_struct.pkl
+✓ Saved: label_encoders.pkl
+✓ Saved: metadata.json
+✓ Saved: README.md
+
+================================================================================
+PUSHING TO HUGGING FACE HUB
+================================================================================
+✓ Repository created/exists: AKG2/hybrid-readmission-classifier
+Processing Files (3 / 3)      : 100%|████████████████████████████████████| 21.2kB / 21.2kB, 2.41kB/s  
+New Data Upload               : 100%|████████████████████████████████████| 21.2kB / 21.2kB, 2.41kB/s  
+  ...output/label_encoders.pkl: 100%|████████████████████████████████████| 1.43kB / 1.43kB            
+  ...utput/scaler_combined.pkl: 100%|████████████████████████████████████| 19.1kB / 19.1kB            
+  ..._output/scaler_struct.pkl: 100%|████████████████████████████████████|   671B /   671B            
+✓ Model pushed to: https://huggingface.co/AKG2/hybrid-readmission-classifier
+✓ All artifacts uploaded successfully!
+
+✓ Local model saved to: ./hybrid_model_output
+
+================================================================================
+🎉 HYBRID MODEL TRAINING COMPLETE!
+================================================================================
+
+Final Metrics:
+  ROC_AUC: 0.6602
+  AUPRC: 0.3334
+  ACCURACY: 0.6386
+  F1_SCORE: 0.3871

@@ -1,0 +1,139 @@
+============================================================
+MEMORY OPTIMIZATION SETTINGS
+============================================================
+Sample size: Full dataset
+Max TF-IDF features: 20000
+
+============================================================
+STEP 1: Loading Data
+============================================================
+Admissions data shape: (374139, 2)
+Loading discharge notes...
+Loading radiology notes...
+Discharge notes shape: (331731, 2)
+Radiology notes shape: (1144023, 2)
+
+============================================================
+STEP 2: Preparing Text Features (Memory Efficient)
+============================================================
+Combined notes shape: (1475754, 2)
+Aggregating notes by admission...
+Aggregated notes shape: (374139, 2)
+
+============================================================
+STEP 3: Preparing Final Dataset
+============================================================
+Final dataset shape: (374139, 3)
+Readmission distribution:
+readmitted_30day
+0    298417
+1     75722
+Name: count, dtype: int64
+Readmission rate: 20.24%
+
+============================================================
+STEP 4: Defining Features and Target
+============================================================
+X shape: (374139,)
+y shape: (374139,)
+
+============================================================
+STEP 5: Train-Test Split
+============================================================
+Training set size: 299311
+Test set size: 74828
+Training readmission rate: 20.24%
+Test readmission rate: 20.24%
+
+============================================================
+STEP 6: TF-IDF Vectorization (Optimized)
+============================================================
+Fitting TF-IDF vectorizer on training data...
+Transforming test data...
+TF-IDF training matrix shape: (299311, 20000)
+TF-IDF test matrix shape: (74828, 20000)
+Number of features: 20000
+Matrix density: 2.0598%
+
+============================================================
+STEP 7: Training Logistic Regression Model (Optimized)
+============================================================
+Training model...
+convergence after 26 epochs took 91 seconds
+Model training complete!
+
+============================================================
+STEP 8: Model Evaluation
+============================================================
+Making predictions...
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  1.5min finished
+                precision    recall  f1-score   support
+
+Not Readmitted       0.87      0.69      0.77     59684
+    Readmitted       0.33      0.61      0.43     15144
+
+      accuracy                           0.67     74828
+     macro avg       0.60      0.65      0.60     74828
+  weighted avg       0.76      0.67      0.70     74828
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[40969 18715]
+ [ 5980  9164]]
+
+True Negatives:  40969
+False Positives: 18715
+False Negatives: 5980
+True Positives:  9164
+
+🎯 ROC-AUC SCORE: 0.7003
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6700
+Precision: 0.3287
+Recall:    0.6051
+F1-Score:  0.4260
+ROC-AUC:   0.7003
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES FOR READMISSION:
+------------------------------------------------------------
+
+Most predictive of READMISSION:
+  admissions: 5.2167
+  personality: 3.3953
+  fix: 3.2367
+  scheduled: 3.1561
+  gastroparesis: 2.9869
+  desens: 2.9120
+  discharged: 2.7729
+  dlbcl: 2.7681
+  sarcoma: 2.7133
+  hidac: 2.7131
+  dilaudid: 2.6858
+  ama: 2.6792
+  osteosarcoma: 2.6512
+  overdose: 2.6478
+  return: 2.6177
+
+Most predictive of NO READMISSION:
+  expired: -11.1305
+  hospice: -5.1697
+  adrs: -4.7094
+  comfort: -4.2357
+  file: -4.0803
+  cmo: -4.0197
+  uvj: -2.7557
+  auscultated: -2.6858
+  bradycardic: -2.6514
+  allergies: -2.4969
+  uncomplicated: -2.4398
+  dnr: -2.4058
+  ultra: -2.3416
+  condition: -2.3199
+  melphalan: -2.2878
+

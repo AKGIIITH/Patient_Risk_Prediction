@@ -1,0 +1,153 @@
+============================================================
+MEMORY OPTIMIZATION SETTINGS
+============================================================
+Sample size: 50000
+Max TF-IDF features: 2000
+
+============================================================
+STEP 1: Loading Data
+============================================================
+Admissions data shape: (374139, 2)
+Loading discharge notes...
+Loading radiology notes...
+Discharge notes shape: (331731, 2)
+Radiology notes shape: (1144023, 2)
+
+============================================================
+STEP 2: Preparing Text Features (Memory Efficient)
+============================================================
+Combined notes shape: (1475754, 2)
+Aggregating notes by admission...
+Aggregated notes shape: (374139, 2)
+
+============================================================
+STEP 3: Preparing Final Dataset
+============================================================
+Final dataset shape: (374139, 3)
+
+⚠️  Using stratified sample of 50000 records for memory efficiency
+Sampled dataset shape: (50000, 3)
+Readmission distribution:
+readmitted_30day
+0    25000
+1    25000
+Name: count, dtype: int64
+Readmission rate: 50.00%
+
+============================================================
+STEP 4: Defining Features and Target
+============================================================
+X shape: (50000,)
+y shape: (50000,)
+
+============================================================
+STEP 5: Train-Test Split
+============================================================
+Training set size: 40000
+Test set size: 10000
+Training readmission rate: 50.00%
+Test readmission rate: 50.00%
+
+============================================================
+STEP 6: TF-IDF Vectorization (Optimized)
+============================================================
+Fitting TF-IDF vectorizer on training data...
+Transforming test data...
+TF-IDF training matrix shape: (40000, 2000)
+TF-IDF test matrix shape: (10000, 2000)
+Number of features: 2000
+Matrix density: 15.7473%
+
+============================================================
+STEP 7: Training Logistic Regression Model (Optimized)
+============================================================
+Training model...
+convergence after 23 epochs took 9 seconds
+Model training complete!
+
+============================================================
+STEP 8: Model Evaluation
+============================================================
+Making predictions...
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.62      0.66      0.64      5000
+    Readmitted       0.64      0.60      0.62      5000
+
+      accuracy                           0.63     10000
+     macro avg       0.63      0.63      0.63     10000
+  weighted avg       0.63      0.63      0.63     10000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[3278 1722]
+ [1999 3001]]
+
+True Negatives:  3278
+False Positives: 1722
+False Negatives: 1999
+True Positives:  3001
+
+🎯 ROC-AUC SCORE: 0.6734
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6279
+Precision: 0.6354
+Recall:    0.6002
+F1-Score:  0.6173
+ROC-AUC:   0.6734
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES FOR READMISSION:
+------------------------------------------------------------
+
+Most predictive of READMISSION:
+  discharged: 2.6445
+  chemotherapy: 2.6156
+  dilaudid: 2.3434
+  recurrent: 2.3107
+  cycle: 2.2471
+  disorder: 2.1815
+  admitted: 2.1747
+  omr: 2.1289
+  external: 2.1286
+  lymphoma: 2.0390
+  recently: 2.0241
+  multiple: 1.9722
+  scheduled: 1.9567
+  marrow: 1.9532
+  testing: 1.8595
+
+Most predictive of NO READMISSION:
+  uncomplicated: -2.0519
+  osh: -1.9501
+  year: -1.9071
+  et: -1.8939
+  13: -1.7306
+  outside: -1.6887
+  aspirin: -1.6754
+  grayscale: -1.6360
+  140: -1.6332
+  removal: -1.5579
+  colonoscopy: -1.4672
+  available: -1.4606
+  condition: -1.4446
+  ago: -1.4274
+  stomach: -1.4250
+
+============================================================
+✅ MODEL TRAINING AND EVALUATION COMPLETE!
+============================================================
+
+💡 TIPS TO USE FULL DATASET:
+------------------------------------------------------------
+1. Set USE_SAMPLING = False at the top
+2. Increase MAX_FEATURES gradually (2000 → 3000 → 5000)
+3. Use Colab Pro with more RAM
+4. Consider using SGDClassifier for even larger datasets
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    9.0s finished
+

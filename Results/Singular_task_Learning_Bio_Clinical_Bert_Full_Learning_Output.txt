@@ -1,0 +1,239 @@
+================================================================================
+47.3s	45	LOADING DATA
+47.3s	46	================================================================================
+48.6s	47	✓ Loaded admissions: (374139, 16)
+110.7s	48	✓ Loaded discharge notes: (331731, 7)
+133.7s	49	✓ Loaded radiology notes: (1144023, 7)
+133.7s	50	
+133.7s	51	Combining notes...
+178.5s	52	✓ Final merged data: (374139, 18)
+178.5s	53	
+178.5s	54	Preparing labels...
+178.5s	55	  - Original distribution: {0: 298417, 1: 75722}
+178.5s	56	
+178.5s	57	⚖️  Balancing dataset...
+178.5s	58	  - Positive samples: 75722
+178.5s	59	  - Negative samples: 298417
+178.5s	60	  - Target size per class: 75000
+179.4s	61	  - Balanced dataset size: 150000
+179.4s	62	  - New distribution: {1: 75000, 0: 75000}
+179.4s	63	✓ Sampled 10000 rows for testing
+179.4s	64	
+179.4s	65	  - Final positive weight: 0.99
+179.4s	66	  - Final dataset size: 10000
+179.4s	67	
+179.4s	68	================================================================================
+179.4s	69	SPLITTING DATA
+179.4s	70	================================================================================
+179.4s	71	✓ Train size: 8000
+179.4s	72	✓ Validation size: 2000
+179.6s	73	
+179.6s	74	================================================================================
+179.6s	75	LOADING TOKENIZER
+179.6s	76	================================================================================
+182.9s	77	✓ Loaded tokenizer: emilyalsentzer/Bio_ClinicalBERT
+182.9s	78	
+182.9s	79	================================================================================
+182.9s	80	CREATING DATASETS
+182.9s	81	================================================================================
+182.9s	82	✓ Train dataset: 8000 samples
+182.9s	83	✓ Validation dataset: 2000 samples
+183.1s	84	
+183.1s	85	================================================================================
+183.1s	86	INITIALIZING IMPROVED MODEL
+183.1s	87	================================================================================
+195.1s	88	✓ Initialized model from: emilyalsentzer/Bio_ClinicalBERT
+195.1s	89	  - Total parameters: 108,607,489
+195.1s	90	  - Trainable parameters: 108,607,489
+195.1s	91	
+195.1s	92	================================================================================
+195.1s	93	INITIALIZING IMPROVED TRAINER
+195.1s	94	================================================================================
+196.0s	95	✓ Trainer initialized with improvements:
+196.0s	96	  - Effective batch size: 32
+196.0s	97	  - Learning rate: 5e-05
+196.0s	98	  - Gradient clipping: 1.0
+196.0s	99	  - Early stopping patience: 3
+196.0s	100	  - Max length: 512
+196.0s	101	
+196.0s	102	================================================================================
+196.0s	103	TRAINING MODEL WITH IMPROVEMENTS
+196.0s	104	================================================================================
+196.0s	105	Expected improvements:
+196.0s	106	  ✓ Balanced dataset (equal class distribution)
+196.0s	107	  ✓ Higher learning rate for faster convergence
+196.0s	108	  ✓ Gradient clipping to prevent instability
+196.0s	109	  ✓ Better model architecture with intermediate layer
+196.0s	110	  ✓ Early stopping to prevent overfitting
+196.0s	111	================================================================================
+196.0s	112	
+199.2s	113	{'loss': 6.3722, 'grad_norm': nan, 'learning_rate': 0.0, 'epoch': 0.004}
+199.2s	114	Epoch 0.00 | Loss: 6.3722 | LR: 0.00e+00 | Grad: nan
+305.2s	115	{'loss': 5.9507, 'grad_norm': 35.13752365112305, 'learning_rate': 1.88e-05, 'epoch': 0.2}
+305.2s	116	Epoch 0.20 | Loss: 5.9507 | LR: 1.88e-05 | Grad: 35.14
+412.7s	117	{'loss': 5.8874, 'grad_norm': 57.01591491699219, 'learning_rate': 3.88e-05, 'epoch': 0.4}
+412.7s	118	Epoch 0.40 | Loss: 5.8874 | LR: 3.88e-05 | Grad: 57.02
+520.3s	119	{'loss': 5.8056, 'grad_norm': 21.537921905517578, 'learning_rate': 4.953684210526316e-05, 'epoch': 0.6}
+520.3s	120	Epoch 0.60 | Loss: 5.8056 | LR: 4.95e-05 | Grad: 21.54
+628.3s	121	{'loss': 5.527, 'grad_norm': 20.887990951538086, 'learning_rate': 4.8484210526315794e-05, 'epoch': 0.8}
+628.3s	122	Epoch 0.80 | Loss: 5.5270 | LR: 4.85e-05 | Grad: 20.89
+735.8s	123	{'loss': 5.6093, 'grad_norm': 31.28107452392578, 'learning_rate': 4.743157894736842e-05, 'epoch': 1.0}
+735.8s	124	Epoch 1.00 | Loss: 5.6093 | LR: 4.74e-05 | Grad: 31.28
+792.4s	125	{'eval_loss': 0.700839638710022, 'eval_roc_auc': 0.644431077122779, 'eval_accuracy': 0.5605, 'eval_precision': 0.5370799536500579, 'eval_recall': 0.9205561072492552, 'eval_f1': 0.6783754116355653, 'eval_runtime': 56.6698, 'eval_samples_per_second': 35.292, 'eval_steps_per_second': 4.412, 'epoch': 1.0}
+792.4s	126	
+792.4s	127	📊 Evaluation Results:
+792.4s	128	   ROC-AUC:   0.6444
+792.4s	129	   Accuracy:  0.5605
+792.4s	130	   Precision: 0.5371
+792.4s	131	   Recall:    0.9206
+792.4s	132	   F1 Score:  0.6784
+792.4s	133	   Loss:      0.7008
+792.4s	134	
+902.5s	135	{'loss': 5.4454, 'grad_norm': 16.49177360534668, 'learning_rate': 4.637894736842105e-05, 'epoch': 1.2}
+902.5s	136	Epoch 1.20 | Loss: 5.4454 | LR: 4.64e-05 | Grad: 16.49
+1010.4s	137	{'loss': 5.4256, 'grad_norm': 18.86745834350586, 'learning_rate': 4.532631578947369e-05, 'epoch': 1.4}
+1010.4s	138	Epoch 1.40 | Loss: 5.4256 | LR: 4.53e-05 | Grad: 18.87
+1117.8s	139	{'loss': 5.4581, 'grad_norm': 13.858656883239746, 'learning_rate': 4.427368421052632e-05, 'epoch': 1.6}
+1117.8s	140	Epoch 1.60 | Loss: 5.4581 | LR: 4.43e-05 | Grad: 13.86
+1225.5s	141	{'loss': 5.2789, 'grad_norm': 18.13898468017578, 'learning_rate': 4.322105263157895e-05, 'epoch': 1.8}
+1225.5s	142	Epoch 1.80 | Loss: 5.2789 | LR: 4.32e-05 | Grad: 18.14
+1333.8s	143	{'loss': 5.2895, 'grad_norm': 14.238190650939941, 'learning_rate': 4.2168421052631576e-05, 'epoch': 2.0}
+1333.8s	144	Epoch 2.00 | Loss: 5.2895 | LR: 4.22e-05 | Grad: 14.24
+1389.7s	145	{'eval_loss': 0.645739734172821, 'eval_roc_auc': 0.6631799958197951, 'eval_accuracy': 0.6225, 'eval_precision': 0.6334745762711864, 'eval_recall': 0.5938430983118173, 'eval_f1': 0.6130189646335212, 'eval_runtime': 55.5591, 'eval_samples_per_second': 35.998, 'eval_steps_per_second': 4.5, 'epoch': 2.0}
+1389.7s	146	
+1389.7s	147	📊 Evaluation Results:
+1389.7s	148	   ROC-AUC:   0.6632
+1389.7s	149	   Accuracy:  0.6225
+1389.7s	150	   Precision: 0.6335
+1389.7s	151	   Recall:    0.5938
+1389.7s	152	   F1 Score:  0.6130
+1389.7s	153	   Loss:      0.6457
+1389.7s	154	
+1389.7s	155	✓ New best ROC-AUC: 0.6632
+1498.7s	156	{'loss': 5.2689, 'grad_norm': 11.737396240234375, 'learning_rate': 4.1115789473684216e-05, 'epoch': 2.2}
+1498.7s	157	Epoch 2.20 | Loss: 5.2689 | LR: 4.11e-05 | Grad: 11.74
+1607.3s	158	{'loss': 5.1161, 'grad_norm': 22.437339782714844, 'learning_rate': 4.006315789473684e-05, 'epoch': 2.4}
+1607.3s	159	Epoch 2.40 | Loss: 5.1161 | LR: 4.01e-05 | Grad: 22.44
+1715.3s	160	{'loss': 5.0097, 'grad_norm': 17.170392990112305, 'learning_rate': 3.9010526315789475e-05, 'epoch': 2.6}
+1715.3s	161	Epoch 2.60 | Loss: 5.0097 | LR: 3.90e-05 | Grad: 17.17
+1823.6s	162	{'loss': 5.0846, 'grad_norm': 22.070627212524414, 'learning_rate': 3.795789473684211e-05, 'epoch': 2.8}
+1823.6s	163	Epoch 2.80 | Loss: 5.0846 | LR: 3.80e-05 | Grad: 22.07
+1930.9s	164	{'loss': 5.1533, 'grad_norm': 36.39014434814453, 'learning_rate': 3.690526315789474e-05, 'epoch': 3.0}
+1930.9s	165	Epoch 3.00 | Loss: 5.1533 | LR: 3.69e-05 | Grad: 36.39
+1986.4s	166	{'eval_loss': 0.6439209580421448, 'eval_roc_auc': 0.6666186643145514, 'eval_accuracy': 0.619, 'eval_precision': 0.6310160427807486, 'eval_recall': 0.5858987090367428, 'eval_f1': 0.607621009268795, 'eval_runtime': 55.4214, 'eval_samples_per_second': 36.087, 'eval_steps_per_second': 4.511, 'epoch': 3.0}
+1986.4s	167	
+1986.4s	168	📊 Evaluation Results:
+1986.4s	169	   ROC-AUC:   0.6666
+1986.4s	170	   Accuracy:  0.6190
+1986.4s	171	   Precision: 0.6310
+1986.4s	172	   Recall:    0.5859
+1986.4s	173	   F1 Score:  0.6076
+1986.4s	174	   Loss:      0.6439
+1986.4s	175	
+1986.4s	176	✓ New best ROC-AUC: 0.6666
+2096.2s	177	{'loss': 4.6557, 'grad_norm': 23.753870010375977, 'learning_rate': 3.585263157894737e-05, 'epoch': 3.2}
+2096.2s	178	Epoch 3.20 | Loss: 4.6557 | LR: 3.59e-05 | Grad: 23.75
+2204.1s	179	{'loss': 4.3706, 'grad_norm': 26.64577865600586, 'learning_rate': 3.48e-05, 'epoch': 3.4}
+2204.1s	180	Epoch 3.40 | Loss: 4.3706 | LR: 3.48e-05 | Grad: 26.65
+2311.6s	181	{'loss': 4.546, 'grad_norm': 22.27019500732422, 'learning_rate': 3.374736842105263e-05, 'epoch': 3.6}
+2311.6s	182	Epoch 3.60 | Loss: 4.5460 | LR: 3.37e-05 | Grad: 22.27
+2419.3s	183	{'loss': 4.4356, 'grad_norm': 29.618608474731445, 'learning_rate': 3.2694736842105264e-05, 'epoch': 3.8}
+2419.3s	184	Epoch 3.80 | Loss: 4.4356 | LR: 3.27e-05 | Grad: 29.62
+2527.6s	185	{'loss': 4.5283, 'grad_norm': 55.70174789428711, 'learning_rate': 3.16421052631579e-05, 'epoch': 4.0}
+2527.6s	186	Epoch 4.00 | Loss: 4.5283 | LR: 3.16e-05 | Grad: 55.70
+2583.1s	187	{'eval_loss': 0.7422906756401062, 'eval_roc_auc': 0.6524684709550768, 'eval_accuracy': 0.6075, 'eval_precision': 0.6337349397590362, 'eval_recall': 0.522343594836147, 'eval_f1': 0.5726728361458902, 'eval_runtime': 55.5418, 'eval_samples_per_second': 36.009, 'eval_steps_per_second': 4.501, 'epoch': 4.0}
+2583.1s	188	
+2583.1s	189	📊 Evaluation Results:
+2583.1s	190	   ROC-AUC:   0.6525
+2583.1s	191	   Accuracy:  0.6075
+2583.1s	192	   Precision: 0.6337
+2583.1s	193	   Recall:    0.5223
+2583.1s	194	   F1 Score:  0.5727
+2583.1s	195	   Loss:      0.7423
+2583.1s	196	
+2583.1s	197	⚠️  No improvement for 1 epoch(s)
+2692.5s	198	{'loss': 3.0436, 'grad_norm': 57.71935272216797, 'learning_rate': 3.058947368421053e-05, 'epoch': 4.2}
+2692.5s	199	Epoch 4.20 | Loss: 3.0436 | LR: 3.06e-05 | Grad: 57.72
+2800.8s	200	{'loss': 3.182, 'grad_norm': 69.72408294677734, 'learning_rate': 2.9557894736842107e-05, 'epoch': 4.4}
+2800.8s	201	Epoch 4.40 | Loss: 3.1820 | LR: 2.96e-05 | Grad: 69.72
+2909.1s	202	{'loss': 3.0697, 'grad_norm': 77.23957824707031, 'learning_rate': 2.850526315789474e-05, 'epoch': 4.6}
+2909.1s	203	Epoch 4.60 | Loss: 3.0697 | LR: 2.85e-05 | Grad: 77.24
+3018.0s	204	{'loss': 2.9392, 'grad_norm': 49.131229400634766, 'learning_rate': 2.745263157894737e-05, 'epoch': 4.8}
+3018.0s	205	Epoch 4.80 | Loss: 2.9392 | LR: 2.75e-05 | Grad: 49.13
+3126.2s	206	{'loss': 2.9308, 'grad_norm': 70.18714141845703, 'learning_rate': 2.64e-05, 'epoch': 5.0}
+3126.2s	207	Epoch 5.00 | Loss: 2.9308 | LR: 2.64e-05 | Grad: 70.19
+3182.0s	208	{'eval_loss': 0.9698110222816467, 'eval_roc_auc': 0.6166862176246636, 'eval_accuracy': 0.587, 'eval_precision': 0.5784908933217693, 'eval_recall': 0.6623634558093346, 'eval_f1': 0.6175925925925926, 'eval_runtime': 55.7769, 'eval_samples_per_second': 35.857, 'eval_steps_per_second': 4.482, 'epoch': 5.0}
+3182.0s	209	
+3182.0s	210	📊 Evaluation Results:
+3182.0s	211	   ROC-AUC:   0.6167
+3182.0s	212	   Accuracy:  0.5870
+3182.0s	213	   Precision: 0.5785
+3182.0s	214	   Recall:    0.6624
+3182.0s	215	   F1 Score:  0.6176
+3182.0s	216	   Loss:      0.9698
+3182.0s	217	
+3182.0s	218	⚠️  No improvement for 2 epoch(s)
+3292.7s	219	{'loss': 1.5223, 'grad_norm': 37.27507019042969, 'learning_rate': 2.534736842105263e-05, 'epoch': 5.2}
+3292.7s	220	Epoch 5.20 | Loss: 1.5223 | LR: 2.53e-05 | Grad: 37.28
+3400.7s	221	{'loss': 1.6332, 'grad_norm': 76.17976379394531, 'learning_rate': 2.4294736842105263e-05, 'epoch': 5.4}
+3400.7s	222	Epoch 5.40 | Loss: 1.6332 | LR: 2.43e-05 | Grad: 76.18
+3508.4s	223	{'loss': 1.7136, 'grad_norm': 70.53331756591797, 'learning_rate': 2.3263157894736844e-05, 'epoch': 5.6}
+3508.4s	224	Epoch 5.60 | Loss: 1.7136 | LR: 2.33e-05 | Grad: 70.53
+3616.1s	225	{'loss': 1.8133, 'grad_norm': 60.62395477294922, 'learning_rate': 2.2210526315789476e-05, 'epoch': 5.8}
+3616.1s	226	Epoch 5.80 | Loss: 1.8133 | LR: 2.22e-05 | Grad: 60.62
+3724.4s	227	{'loss': 1.8666, 'grad_norm': 64.61016845703125, 'learning_rate': 2.1157894736842106e-05, 'epoch': 6.0}
+3724.4s	228	Epoch 6.00 | Loss: 1.8666 | LR: 2.12e-05 | Grad: 64.61
+3780.0s	229	{'eval_loss': 1.2681225538253784, 'eval_roc_auc': 0.6132780506244806, 'eval_accuracy': 0.5695, 'eval_precision': 0.5543964232488823, 'eval_recall': 0.7388282025819265, 'eval_f1': 0.6334610472541506, 'eval_runtime': 55.5951, 'eval_samples_per_second': 35.974, 'eval_steps_per_second': 4.497, 'epoch': 6.0}
+3780.0s	230	
+3780.0s	231	📊 Evaluation Results:
+3780.0s	232	   ROC-AUC:   0.6133
+3780.0s	233	   Accuracy:  0.5695
+3780.0s	234	   Precision: 0.5544
+3780.0s	235	   Recall:    0.7388
+3780.0s	236	   F1 Score:  0.6335
+3780.0s	237	   Loss:      1.2681
+3780.0s	238	
+3780.0s	239	⚠️  No improvement for 3 epoch(s)
+3780.0s	240	
+3780.0s	241	🛑 Early stopping triggered after 3 epochs without improvement
+3781.9s	242	{'train_runtime': 3585.859, 'train_samples_per_second': 22.31, 'train_steps_per_second': 0.697, 'train_loss': 4.252300147374471, 'epoch': 6.0}
+3781.9s	243	
+3781.9s	244	================================================================================
+3781.9s	245	TRAINING SUMMARY
+3781.9s	246	================================================================================
+3781.9s	247	Average training loss: 0.5645
+3781.9s	248	Final training loss: 0.7876
+3781.9s	249	
+3781.9s	250	Best evaluation metrics:
+3781.9s	251	  ROC-AUC:   0.6666
+3781.9s	252	  Accuracy:  0.6190
+3781.9s	253	  F1 Score:  0.6076
+3782.1s	254	
+3782.1s	255	================================================================================
+3782.1s	256	FINAL EVALUATION ON BEST MODEL
+3782.1s	257	================================================================================
+3838.0s	258	{'eval_loss': 0.6439209580421448, 'eval_roc_auc': 0.6666186643145514, 'eval_accuracy': 0.619, 'eval_precision': 0.6310160427807486, 'eval_recall': 0.5858987090367428, 'eval_f1': 0.607621009268795, 'eval_runtime': 56.0459, 'eval_samples_per_second': 35.685, 'eval_steps_per_second': 4.461, 'epoch': 6.0}
+3838.0s	259	
+3838.0s	260	📊 Evaluation Results:
+3838.0s	261	   ROC-AUC:   0.6666
+3838.0s	262	   Accuracy:  0.6190
+3838.0s	263	   Precision: 0.6310
+3838.0s	264	   Recall:    0.5859
+3838.0s	265	   F1 Score:  0.6076
+3838.0s	266	   Loss:      0.6439
+3838.0s	267	
+3838.0s	268	⚠️  No improvement for 4 epoch(s)
+3838.0s	269	
+3838.0s	270	🛑 Early stopping triggered after 4 epochs without improvement
+3838.0s	271	
+3838.0s	272	📊 FINAL RESULTS:
+3838.0s	273	  ROC-AUC:   0.6666
+3838.0s	274	  Accuracy:  0.6190
+3838.0s	275	  Precision: 0.6310
+3838.0s	276	  Recall:    0.5859
+3838.0s	277	  F1 Score:  0.6076
+3838.0s	278	  Loss:      0.6439
+3838.0s	279	
+3838.0s	280	================================================================================
+3838.0s	281	TRAINING COMPLETE!
+3838.0s	282	================================================================================

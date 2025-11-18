@@ -1,0 +1,78 @@
+================================================================================
+144.3s	42	MULTI-TASK LEARNING FOR HOSPITAL READMISSION PREDICTION
+144.3s	43	          (BASE MODEL FROZEN - FEATURE EXTRACTION)
+144.3s	44	================================================================================
+144.3s	45	
+144.3s	46	================================================================================
+144.3s	47	LOADING DATA
+144.3s	48	================================================================================
+145.6s	49	✓ Loaded admissions: (374139, 16)
+211.1s	50	✓ Loaded discharge notes: (331731, 7)
+236.3s	51	✓ Loaded radiology notes: (1144023, 7)
+236.3s	52	
+236.3s	53	Combining notes...
+282.0s	54	✓ Final merged data: (374139, 18)
+282.0s	55	✓ Sampled 10000 rows for testing
+282.0s	56	
+282.0s	57	Preparing labels...
+282.0s	58	  - Readmission distribution: {0: 7921, 1: 2079}
+282.0s	59	  - Mortality distribution: {0: 9760, 1: 240}
+282.0s	60	  - Admission types: 9 classes
+282.0s	61	  - Positive weight for readmission: 3.81
+282.2s	62	
+282.2s	63	================================================================================
+282.2s	64	SPLITTING DATA
+282.2s	65	================================================================================
+283.1s	66	✓ Train size: 8000
+283.1s	67	✓ Validation size: 2000
+283.1s	68	
+283.1s	69	================================================================================
+283.1s	70	LOADING TOKENIZER
+283.1s	71	================================================================================
+284.6s	72	✓ Loaded tokenizer: yikuan8/Clinical-Longformer
+284.6s	73	
+284.6s	74	================================================================================
+284.6s	75	CREATING DATASETS
+284.6s	76	================================================================================
+284.6s	77	✓ Train dataset: 8000 samples
+284.6s	78	✓ Validation dataset: 2000 samples
+284.8s	79	
+284.8s	80	================================================================================
+284.8s	81	INITIALIZING MODEL
+284.8s	82	================================================================================
+288.7s	83	Some weights of LongformerModel were not initialized from the model checkpoint at yikuan8/Clinical-Longformer and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+288.7s	84	You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+288.7s	85	
+288.7s	86	Some weights of LongformerModel were not initialized from the model checkpoint at yikuan8/Clinical-Longformer and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+288.7s	87	You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+288.9s	88	✓ Model created with 9 admission type classes
+288.9s	89	
+288.9s	90	--------------------------------------------------------------------------------
+288.9s	91	❄️ FREEZING BASE MODEL PARAMETERS (Clinical-Longformer)...
+288.9s	92	✓ Base model frozen. Only the classification heads will be fine-tuned.
+288.9s	93	--------------------------------------------------------------------------------
+288.9s	94	
+288.9s	95	================================================================================
+288.9s	96	INITIALIZING TRAINER
+288.9s	97	================================================================================
+289.6s	98	✓ Trainer initialized
+289.6s	99	
+289.6s	100	================================================================================
+289.6s	101	TRAINING MODEL (ONLY HEADS)
+289.6s	102	================================================================================
+4078.2s	103	
+4078.2s	104	================================================================================
+4078.2s	105	FINAL EVALUATION (MAIN TASK: 30-DAY READMISSION)
+4078.2s	106	================================================================================
+5174.8s	107	
+5174.8s	108	📊 RESULTS (BASE MODEL FROZEN):
+5174.8s	109	  ROC-AUC:   0.5367
+5174.8s	110	  Accuracy:  0.2450
+5174.8s	111	  Precision: 0.2136
+5174.8s	112	  Recall:    0.9808
+5174.8s	113	  F1 Score:  0.3508
+5174.8s	114	
+5174.8s	115	================================================================================
+5174.8s	116	TRAINING COMPLETE!
+5174.8s	117	================================================================================
+5174.8s	118	Model saved to: ./mtl_readmission_model_FROZEN

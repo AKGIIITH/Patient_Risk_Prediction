@@ -1,0 +1,261 @@
+MODEL EVALUATION RESULTS
+============================================================
+
+============================================================
+MODEL: Logistic Regression
+============================================================
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.87      0.68      0.76     23928
+    Readmitted       0.32      0.60      0.42      6072
+
+      accuracy                           0.66     30000
+     macro avg       0.60      0.64      0.59     30000
+  weighted avg       0.76      0.66      0.69     30000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[16266  7662]
+ [ 2415  3657]]
+True Negatives:  16266
+False Positives: 7662
+False Negatives: 2415
+True Positives:  3657
+
+🎯 ROC-AUC SCORE: 0.6940
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6641
+Precision: 0.3231
+Recall:    0.6023
+F1-Score:  0.4206
+ROC-AUC:   0.6940
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES:
+------------------------------------------------------------
+
+Most predictive of READMISSION:
+  admissions: 5.1601
+  discharged: 3.0526
+  ama: 2.8936
+  intoxication: 2.8098
+  gastroparesis: 2.7555
+  sarcoma: 2.6590
+  lymphoma: 2.5221
+  schizophrenia: 2.5168
+  carotids: 2.4443
+  scheduled: 2.2962
+  aml: 2.2599
+  recently: 2.1681
+  epoch: 2.1600
+  chemotherapy: 2.1436
+  dilaudid: 2.1150
+
+Most predictive of NO READMISSION:
+  expired: -6.7967
+  comfort: -3.7752
+  nonobstructing: -2.6102
+  year: -2.5857
+  palliative: -2.5029
+  maintenance: -2.4989
+  periorbital: -2.4658
+  anasarca: -2.4580
+  initiation: -2.3515
+  postpartum: -2.3226
+  family: -2.2915
+  osh: -2.2633
+  adverse: -2.2245
+  stimuli: -2.1651
+  oa: -2.1420
+
+============================================================
+============================================================
+MODEL: Linear SVM (LinearSVC)
+============================================================
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.87      0.67      0.76     23928
+    Readmitted       0.32      0.59      0.41      6072
+
+      accuracy                           0.66     30000
+     macro avg       0.59      0.63      0.59     30000
+  weighted avg       0.76      0.66      0.69     30000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[16099  7829]
+ [ 2462  3610]]
+True Negatives:  16099
+False Positives: 7829
+False Negatives: 2462
+True Positives:  3610
+
+🎯 ROC-AUC SCORE: 0.6831
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6570
+Precision: 0.3156
+Recall:    0.5945
+F1-Score:  0.4123
+ROC-AUC:   0.6831
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES:
+------------------------------------------------------------
+
+Most predictive of READMISSION:
+  admissions: 2.5747
+  tesla: 2.3789
+  obstetrics: 2.0111
+  dictated: 1.9531
+  trapezii: 1.9528
+  bue: 1.8419
+  carotids: 1.7818
+  wd: 1.6548
+  sulci: 1.6545
+  gauge: 1.5893
+  sequential: 1.5412
+  sternocleidomastoid: 1.5402
+  discharged: 1.4909
+  ama: 1.4773
+  answered: 1.4573
+
+Most predictive of NO READMISSION:
+  expired: -7.0188
+  magnet: -2.9220
+  comfort: -2.6859
+  helically: -2.6459
+  acuity: -1.9385
+  nonobstructing: -1.8557
+  anasarca: -1.8398
+  allergies: -1.8313
+  driving: -1.7570
+  year: -1.7289
+  po2: -1.7229
+  rbc: -1.6973
+  pertinent: -1.6927
+  palliative: -1.6684
+  stimuli: -1.6599
+
+============================================================
+============================================================
+MODEL: Random Forest
+============================================================
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.85      0.79      0.82     23928
+    Readmitted       0.35      0.44      0.39      6072
+
+      accuracy                           0.72     30000
+     macro avg       0.60      0.62      0.61     30000
+  weighted avg       0.75      0.72      0.73     30000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[18991  4937]
+ [ 3385  2687]]
+True Negatives:  18991
+False Positives: 4937
+False Negatives: 3385
+True Positives:  2687
+
+🎯 ROC-AUC SCORE: 0.6729
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.7226
+Precision: 0.3524
+Recall:    0.4425
+F1-Score:  0.3924
+ROC-AUC:   0.6729
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES:
+------------------------------------------------------------
+
+Top 15 Most Important Features:
+  oncologic: 0.0131
+  biopsy: 0.0084
+  cycle: 0.0075
+  multiple: 0.0065
+  allergies: 0.0054
+  recently: 0.0053
+  cycles: 0.0052
+  lymphoma: 0.0050
+  chemotherapy: 0.0049
+  cell: 0.0041
+  admissions: 0.0041
+  ast: 0.0040
+  date: 0.0036
+  reactions: 0.0035
+  transplant: 0.0035
+
+============================================================
+============================================================
+MODEL: XGBoost
+============================================================
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.86      0.72      0.78     23928
+    Readmitted       0.33      0.55      0.41      6072
+
+      accuracy                           0.68     30000
+     macro avg       0.60      0.63      0.60     30000
+  weighted avg       0.76      0.68      0.71     30000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[17161  6767]
+ [ 2718  3354]]
+True Negatives:  17161
+False Positives: 6767
+False Negatives: 2718
+True Positives:  3354
+
+🎯 ROC-AUC SCORE: 0.6898
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6838
+Precision: 0.3314
+Recall:    0.5524
+F1-Score:  0.4143
+ROC-AUC:   0.6898
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES:
+------------------------------------------------------------
+
+Top 15 Most Important Features:
+  oncologic: 0.0134
+  biopsy: 0.0068
+  transplant: 0.0054
+  medicine: 0.0051
+  esrd: 0.0045
+  vein: 0.0041
+  complicated: 0.0041
+  admissions: 0.0039
+  sterile: 0.0038
+  chemotherapy: 0.0038
+  recently: 0.0037
+  picc: 0.0034
+  multiple: 0.0033
+  metastatic: 0.0032
+  cycle: 0.0028
+
+============================================================

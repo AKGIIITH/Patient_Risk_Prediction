@@ -1,0 +1,141 @@
+============================================================
+MEMORY OPTIMIZATION SETTINGS
+============================================================
+Sample size: 150000
+Max TF-IDF features: 50000
+
+============================================================
+STEP 1: Loading Data
+============================================================
+Admissions data shape: (374139, 2)
+Loading discharge notes...
+Loading radiology notes...
+Discharge notes shape: (331731, 2)
+Radiology notes shape: (1144023, 2)
+
+============================================================
+STEP 2: Preparing Text Features (Memory Efficient)
+============================================================
+Combined notes shape: (1475754, 2)
+Aggregating notes by admission...
+Aggregated notes shape: (374139, 2)
+
+============================================================
+STEP 3: Preparing Final Dataset
+============================================================
+Final dataset shape: (374139, 3)
+
+⚠️  Using stratified sample of 150000 records for memory efficiency
+Sampled dataset shape: (150000, 3)
+Readmission distribution:
+readmitted_30day
+0    75000
+1    75000
+Name: count, dtype: int64
+Readmission rate: 50.00%
+
+============================================================
+STEP 4: Defining Features and Target
+============================================================
+X shape: (150000,)
+y shape: (150000,)
+
+============================================================
+STEP 5: Train-Test Split
+============================================================
+Training set size: 120000
+Test set size: 30000
+Training readmission rate: 50.00%
+Test readmission rate: 50.00%
+
+============================================================
+STEP 6: TF-IDF Vectorization (Optimized)
+============================================================
+Fitting TF-IDF vectorizer on training data...
+Transforming test data...
+TF-IDF training matrix shape: (120000, 36420)
+TF-IDF test matrix shape: (30000, 36420)
+Number of features: 36420
+Matrix density: 1.1540%
+
+============================================================
+STEP 7: Training Logistic Regression Model (Optimized)
+============================================================
+Training model...
+convergence after 22 epochs took 32 seconds
+Model training complete!
+
+============================================================
+STEP 8: Model Evaluation
+============================================================
+Making predictions...
+
+📊 CLASSIFICATION REPORT:
+------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Not Readmitted       0.64      0.67      0.65     15000
+    Readmitted       0.65      0.63      0.64     15000
+
+      accuracy                           0.65     30000
+     macro avg       0.65      0.65      0.65     30000
+  weighted avg       0.65      0.65      0.65     30000
+
+
+📈 CONFUSION MATRIX:
+------------------------------------------------------------
+[[9999 5001]
+ [5587 9413]]
+
+True Negatives:  9999
+False Positives: 5001
+False Negatives: 5587
+True Positives:  9413
+
+🎯 ROC-AUC SCORE: 0.7031
+
+📌 SUMMARY METRICS:
+------------------------------------------------------------
+Accuracy:  0.6471
+Precision: 0.6530
+Recall:    0.6275
+F1-Score:  0.6400
+ROC-AUC:   0.7031
+
+🔝 TOP 15 MOST PREDICTIVE FEATURES FOR READMISSION:
+------------------------------------------------------------
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   32.5s finished
+
+Most predictive of READMISSION:
+  admissions: 4.2712
+  gastroparesis: 3.2191
+  discharged: 3.0377
+  ama: 2.9396
+  lymphoma: 2.8950
+  recently: 2.5270
+  scheduled: 2.4818
+  overdose: 2.4647
+  fix: 2.3801
+  aml: 2.3478
+  sarcoma: 2.3309
+  desensitization: 2.3307
+  dilaudid: 2.2801
+  recurrent: 2.2784
+  osteosarcoma: 2.2314
+
+Most predictive of NO READMISSION:
+  expired: -6.4279
+  hospice: -3.4069
+  cmo: -2.8911
+  comfort: -2.8721
+  adrs: -2.6578
+  uncomplicated: -2.3155
+  osh: -2.2041
+  file: -2.1036
+  detox: -1.9689
+  chronicity: -1.9287
+  adverse: -1.8991
+  hypoxemia: -1.8454
+  school: -1.8349
+  family: -1.8276
+  dni: -1.8263

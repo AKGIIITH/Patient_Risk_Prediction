@@ -1,0 +1,169 @@
+================================================================================
+51.6s	25	SINGLE-TASK LEARNING FOR HOSPITAL READMISSION PREDICTION
+51.6s	26	================================================================================
+51.6s	27	
+51.8s	28	Token has not been saved to git credential helper.
+51.8s	29	
+51.8s	30	Token has not been saved to git credential helper.
+51.8s	31	WARNING:huggingface_hub._login:Token has not been saved to git credential helper.
+51.8s	32	
+51.8s	33	WARNING:huggingface_hub._login:Token has not been saved to git credential helper.
+52.0s	34	[1m[31mCannot authenticate through git-credential as no helper is defined on your machine.
+52.0s	35	You might have to re-authenticate when pushing to the Hugging Face Hub.
+52.0s	36	Run the following command in your terminal in case you want to set the 'store' credential helper as default.
+52.0s	37	
+52.0s	38	git config --global credential.helper store
+52.0s	39	
+52.0s	40	Read https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage for more details.[0m
+52.0s	41	✓ Successfully logged in to Hugging Face Hub
+52.0s	42	  Model will be pushed to: AKG2/clinical-longformer-readmission-stl
+52.0s	43	✓ Found existing model on Hub: AKG2/clinical-longformer-readmission-stl
+52.0s	44	================================================================================
+52.0s	45	LOADING DATA
+52.0s	46	================================================================================
+53.7s	47	✓ Loaded admissions: (374139, 16)
+120.1s	48	✓ Loaded discharge notes: (331731, 7)
+143.6s	49	✓ Loaded radiology notes: (1144023, 7)
+143.6s	50	
+143.6s	51	Combining notes...
+188.5s	52	✓ Final merged data: (374139, 18)
+188.5s	53	✓ Sampled 20000 rows for testing
+188.5s	54	
+188.5s	55	Preparing labels...
+188.5s	56	  - Readmission distribution: {0: 15959, 1: 4041}
+188.5s	57	  - Positive weight for readmission: 3.95
+188.6s	58	
+188.6s	59	================================================================================
+188.6s	60	SPLITTING DATA
+188.6s	61	================================================================================
+188.6s	62	✓ Train size: 16000
+188.6s	63	✓ Validation size: 4000
+188.7s	64	
+188.7s	65	================================================================================
+188.7s	66	LOADING TOKENIZER
+188.7s	67	================================================================================
+193.1s	68	✓ Loaded tokenizer from base model: yikuan8/Clinical-Longformer
+193.1s	69	
+193.1s	70	================================================================================
+193.1s	71	CREATING DATASETS
+193.1s	72	================================================================================
+193.1s	73	✓ Train dataset: 16000 samples
+193.1s	74	✓ Validation dataset: 4000 samples
+193.3s	75	
+193.3s	76	================================================================================
+193.3s	77	INITIALIZING MODEL
+193.3s	78	================================================================================
+193.3s	79	  Attempting to load model from Hub: AKG2/clinical-longformer-readmission-stl
+193.3s	80	  Could not load from Hub: type object 'ReadmissionModel' has no attribute 'from_pretrained'
+193.3s	81	  Initializing new model from: yikuan8/Clinical-Longformer
+208.9s	82	
+208.9s	83	================================================================================
+208.9s	84	INITIALIZING TRAINER
+208.9s	85	================================================================================
+209.7s	86	✓ Trainer initialized
+209.7s	87	
+209.7s	88	================================================================================
+209.7s	89	TRAINING MODEL
+209.7s	90	================================================================================
+445.4s	91	{'loss': 17.2127, 'grad_norm': 92.03568267822266, 'learning_rate': 3.2e-07, 'epoch': 0.02}
+679.7s	92	{'loss': 16.8857, 'grad_norm': 72.47566223144531, 'learning_rate': 1.04e-06, 'epoch': 0.04}
+914.1s	93	{'loss': 19.2245, 'grad_norm': 90.3335189819336, 'learning_rate': 1.8400000000000002e-06, 'epoch': 0.06}
+1148.7s	94	{'loss': 18.6526, 'grad_norm': 61.780189514160156, 'learning_rate': 2.64e-06, 'epoch': 0.08}
+1383.1s	95	{'loss': 17.0661, 'grad_norm': 53.108638763427734, 'learning_rate': 3.44e-06, 'epoch': 0.1}
+1617.6s	96	{'loss': 17.3473, 'grad_norm': 69.69395446777344, 'learning_rate': 4.24e-06, 'epoch': 0.12}
+1852.1s	97	{'loss': 18.2359, 'grad_norm': 63.0285530090332, 'learning_rate': 5.04e-06, 'epoch': 0.14}
+2086.6s	98	{'loss': 18.1555, 'grad_norm': 252.22105407714844, 'learning_rate': 5.84e-06, 'epoch': 0.16}
+2321.1s	99	{'loss': 16.9325, 'grad_norm': 90.68203735351562, 'learning_rate': 6.640000000000001e-06, 'epoch': 0.18}
+2555.9s	100	{'loss': 15.9556, 'grad_norm': 59.553707122802734, 'learning_rate': 7.360000000000001e-06, 'epoch': 0.2}
+2790.4s	101	{'loss': 18.0308, 'grad_norm': 73.91861724853516, 'learning_rate': 8.16e-06, 'epoch': 0.22}
+3024.9s	102	{'loss': 17.8181, 'grad_norm': 339.9827880859375, 'learning_rate': 8.96e-06, 'epoch': 0.24}
+3259.4s	103	{'loss': 18.4095, 'grad_norm': 70.11581420898438, 'learning_rate': 9.760000000000001e-06, 'epoch': 0.26}
+3493.9s	104	{'loss': 18.199, 'grad_norm': 71.6290283203125, 'learning_rate': 1.056e-05, 'epoch': 0.28}
+3728.0s	105	{'loss': 18.8308, 'grad_norm': 143.1444549560547, 'learning_rate': 1.136e-05, 'epoch': 0.3}
+3962.4s	106	{'loss': 18.0537, 'grad_norm': 29.327058792114258, 'learning_rate': 1.216e-05, 'epoch': 0.32}
+4196.7s	107	{'loss': 18.3551, 'grad_norm': 30.001890182495117, 'learning_rate': 1.2960000000000001e-05, 'epoch': 0.34}
+4430.9s	108	{'loss': 18.2619, 'grad_norm': 49.13404083251953, 'learning_rate': 1.376e-05, 'epoch': 0.36}
+4665.4s	109	{'loss': 16.8217, 'grad_norm': 179.39820861816406, 'learning_rate': 1.4560000000000001e-05, 'epoch': 0.38}
+4899.6s	110	{'loss': 16.9287, 'grad_norm': 123.51809692382812, 'learning_rate': 1.5360000000000002e-05, 'epoch': 0.4}
+5133.8s	111	{'loss': 18.5107, 'grad_norm': 145.9734344482422, 'learning_rate': 1.616e-05, 'epoch': 0.42}
+5368.0s	112	{'loss': 17.2969, 'grad_norm': 65.07059478759766, 'learning_rate': 1.696e-05, 'epoch': 0.44}
+5602.5s	113	{'loss': 18.9411, 'grad_norm': 60.24816131591797, 'learning_rate': 1.7760000000000003e-05, 'epoch': 0.46}
+5837.1s	114	{'loss': 17.2456, 'grad_norm': 81.72394561767578, 'learning_rate': 1.8560000000000002e-05, 'epoch': 0.48}
+6071.6s	115	{'loss': 16.7445, 'grad_norm': 234.4061279296875, 'learning_rate': 1.936e-05, 'epoch': 0.5}
+6306.1s	116	{'loss': 17.5616, 'grad_norm': 59.45623016357422, 'learning_rate': 1.999111111111111e-05, 'epoch': 0.52}
+6540.3s	117	{'loss': 18.2703, 'grad_norm': 80.40486907958984, 'learning_rate': 1.9902222222222222e-05, 'epoch': 0.54}
+6775.1s	118	{'loss': 17.0643, 'grad_norm': 79.0671615600586, 'learning_rate': 1.9813333333333336e-05, 'epoch': 0.56}
+7009.7s	119	{'loss': 16.98, 'grad_norm': 59.35621643066406, 'learning_rate': 1.9724444444444446e-05, 'epoch': 0.58}
+7244.0s	120	{'loss': 17.9433, 'grad_norm': 66.62531280517578, 'learning_rate': 1.9635555555555557e-05, 'epoch': 0.6}
+7478.7s	121	{'loss': 18.9434, 'grad_norm': 46.56199264526367, 'learning_rate': 1.954666666666667e-05, 'epoch': 0.62}
+7713.2s	122	{'loss': 16.6006, 'grad_norm': 60.31730270385742, 'learning_rate': 1.945777777777778e-05, 'epoch': 0.64}
+7947.6s	123	{'loss': 18.0531, 'grad_norm': 16.639144897460938, 'learning_rate': 1.936888888888889e-05, 'epoch': 0.66}
+8181.9s	124	{'loss': 19.337, 'grad_norm': 32.158573150634766, 'learning_rate': 1.9280000000000002e-05, 'epoch': 0.68}
+8416.3s	125	{'loss': 18.3349, 'grad_norm': 30.7083797454834, 'learning_rate': 1.9191111111111112e-05, 'epoch': 0.7}
+8650.9s	126	{'loss': 16.8129, 'grad_norm': 30.70424461364746, 'learning_rate': 1.9102222222222223e-05, 'epoch': 0.72}
+8885.5s	127	{'loss': 18.337, 'grad_norm': 43.281158447265625, 'learning_rate': 1.9013333333333333e-05, 'epoch': 0.74}
+9119.9s	128	{'loss': 17.8653, 'grad_norm': 19.042102813720703, 'learning_rate': 1.8924444444444447e-05, 'epoch': 0.76}
+9354.1s	129	{'loss': 17.7309, 'grad_norm': 41.24173355102539, 'learning_rate': 1.8835555555555557e-05, 'epoch': 0.78}
+9588.9s	130	{'loss': 17.2872, 'grad_norm': 36.9201545715332, 'learning_rate': 1.8746666666666668e-05, 'epoch': 0.8}
+9823.0s	131	{'loss': 17.6501, 'grad_norm': 33.64599609375, 'learning_rate': 1.865777777777778e-05, 'epoch': 0.82}
+10057.6s	132	{'loss': 17.9313, 'grad_norm': 87.33470153808594, 'learning_rate': 1.856888888888889e-05, 'epoch': 0.84}
+10292.2s	133	{'loss': 18.7247, 'grad_norm': 201.41098022460938, 'learning_rate': 1.8480000000000003e-05, 'epoch': 0.86}
+10526.7s	134	{'loss': 18.9407, 'grad_norm': 149.0503387451172, 'learning_rate': 1.8391111111111113e-05, 'epoch': 0.88}
+10761.1s	135	{'loss': 17.5555, 'grad_norm': 73.66980743408203, 'learning_rate': 1.8302222222222224e-05, 'epoch': 0.9}
+10996.0s	136	{'loss': 16.6432, 'grad_norm': 136.5555877685547, 'learning_rate': 1.8213333333333334e-05, 'epoch': 0.92}
+11230.4s	137	{'loss': 17.6361, 'grad_norm': 33.690303802490234, 'learning_rate': 1.8124444444444448e-05, 'epoch': 0.94}
+11465.1s	138	{'loss': 18.426, 'grad_norm': 78.11666107177734, 'learning_rate': 1.803555555555556e-05, 'epoch': 0.96}
+11699.7s	139	{'loss': 17.9392, 'grad_norm': 39.2542724609375, 'learning_rate': 1.794666666666667e-05, 'epoch': 0.98}
+11934.5s	140	{'loss': 16.958, 'grad_norm': 53.85441970825195, 'learning_rate': 1.785777777777778e-05, 'epoch': 1.0}
+13059.1s	141	{'eval_loss': 1.0994032621383667, 'eval_roc_auc': 0.5878984280006949, 'eval_accuracy': 0.70425, 'eval_precision': 0.27598566308243727, 'eval_recall': 0.28589108910891087, 'eval_f1': 0.28085106382978725, 'eval_runtime': 1124.648, 'eval_samples_per_second': 3.557, 'eval_steps_per_second': 0.889, 'epoch': 1.0}
+13296.8s	142	{'loss': 17.3535, 'grad_norm': 93.23284149169922, 'learning_rate': 1.776888888888889e-05, 'epoch': 1.02}
+13531.1s	143	{'loss': 18.0839, 'grad_norm': 53.56806945800781, 'learning_rate': 1.768e-05, 'epoch': 1.04}
+13765.7s	144	{'loss': 17.8693, 'grad_norm': 84.2987060546875, 'learning_rate': 1.759111111111111e-05, 'epoch': 1.06}
+14000.3s	145	{'loss': 18.1606, 'grad_norm': 90.68489837646484, 'learning_rate': 1.750222222222222e-05, 'epoch': 1.08}
+14234.4s	146	{'loss': 17.9958, 'grad_norm': 33.826717376708984, 'learning_rate': 1.7413333333333335e-05, 'epoch': 1.1}
+14468.7s	147	{'loss': 17.8883, 'grad_norm': 68.6135025024414, 'learning_rate': 1.7324444444444445e-05, 'epoch': 1.12}
+14703.1s	148	{'loss': 17.5218, 'grad_norm': 31.89690589904785, 'learning_rate': 1.7235555555555556e-05, 'epoch': 1.1400000000000001}
+14937.5s	149	{'loss': 18.3822, 'grad_norm': 71.02478790283203, 'learning_rate': 1.7146666666666666e-05, 'epoch': 1.16}
+15172.5s	150	{'loss': 17.6384, 'grad_norm': 243.93777465820312, 'learning_rate': 1.705777777777778e-05, 'epoch': 1.18}
+15407.1s	151	{'loss': 16.8601, 'grad_norm': 99.35986328125, 'learning_rate': 1.696888888888889e-05, 'epoch': 1.2}
+15641.9s	152	{'loss': 18.4136, 'grad_norm': 51.129608154296875, 'learning_rate': 1.688e-05, 'epoch': 1.22}
+15876.4s	153	{'loss': 17.5266, 'grad_norm': 54.8433723449707, 'learning_rate': 1.6791111111111115e-05, 'epoch': 1.24}
+16110.8s	154	{'loss': 16.4499, 'grad_norm': 86.83941650390625, 'learning_rate': 1.6702222222222225e-05, 'epoch': 1.26}
+16345.3s	155	{'loss': 17.7175, 'grad_norm': 112.22792053222656, 'learning_rate': 1.6613333333333336e-05, 'epoch': 1.28}
+16579.9s	156	{'loss': 17.4537, 'grad_norm': 134.2674102783203, 'learning_rate': 1.6524444444444446e-05, 'epoch': 1.3}
+16814.4s	157	{'loss': 16.1966, 'grad_norm': 102.31692504882812, 'learning_rate': 1.6435555555555557e-05, 'epoch': 1.32}
+17048.8s	158	{'loss': 19.0582, 'grad_norm': 82.7052001953125, 'learning_rate': 1.6355555555555557e-05, 'epoch': 1.34}
+17283.1s	159	{'loss': 17.1326, 'grad_norm': 97.76959228515625, 'learning_rate': 1.6266666666666668e-05, 'epoch': 1.3599999999999999}
+17518.1s	160	{'loss': 17.338, 'grad_norm': 84.49373626708984, 'learning_rate': 1.617777777777778e-05, 'epoch': 1.38}
+17752.9s	161	{'loss': 17.6203, 'grad_norm': 76.7077865600586, 'learning_rate': 1.608888888888889e-05, 'epoch': 1.4}
+17987.6s	162	{'loss': 17.3059, 'grad_norm': 68.18265533447266, 'learning_rate': 1.6000000000000003e-05, 'epoch': 1.42}
+18222.1s	163	{'loss': 19.3636, 'grad_norm': 78.1802978515625, 'learning_rate': 1.5911111111111113e-05, 'epoch': 1.44}
+18456.7s	164	{'loss': 16.6676, 'grad_norm': 46.12115478515625, 'learning_rate': 1.5822222222222224e-05, 'epoch': 1.46}
+18691.1s	165	{'loss': 16.7978, 'grad_norm': 31.81804847717285, 'learning_rate': 1.5733333333333334e-05, 'epoch': 1.48}
+18925.5s	166	{'loss': 18.9277, 'grad_norm': 120.0441665649414, 'learning_rate': 1.5644444444444448e-05, 'epoch': 1.5}
+19160.0s	167	{'loss': 18.2999, 'grad_norm': 47.64987564086914, 'learning_rate': 1.555555555555556e-05, 'epoch': 1.52}
+19394.3s	168	{'loss': 17.4646, 'grad_norm': 56.17996597290039, 'learning_rate': 1.546666666666667e-05, 'epoch': 1.54}
+19628.8s	169	{'loss': 17.0738, 'grad_norm': 58.902191162109375, 'learning_rate': 1.537777777777778e-05, 'epoch': 1.56}
+19863.1s	170	{'loss': 16.8729, 'grad_norm': 71.7181396484375, 'learning_rate': 1.528888888888889e-05, 'epoch': 1.58}
+20097.3s	171	{'loss': 16.9706, 'grad_norm': 31.583147048950195, 'learning_rate': 1.5200000000000002e-05, 'epoch': 1.6}
+20331.8s	172	{'loss': 16.0273, 'grad_norm': 70.66261291503906, 'learning_rate': 1.5111111111111112e-05, 'epoch': 1.62}
+20566.0s	173	{'loss': 16.7724, 'grad_norm': 46.854713439941406, 'learning_rate': 1.5022222222222223e-05, 'epoch': 1.6400000000000001}
+20800.3s	174	{'loss': 17.8347, 'grad_norm': 60.52638626098633, 'learning_rate': 1.4933333333333335e-05, 'epoch': 1.6600000000000001}
+21034.4s	175	{'loss': 16.3676, 'grad_norm': 58.29304122924805, 'learning_rate': 1.4844444444444445e-05, 'epoch': 1.6800000000000002}
+21268.6s	176	{'loss': 17.3115, 'grad_norm': 111.47793579101562, 'learning_rate': 1.4755555555555556e-05, 'epoch': 1.7}
+21503.0s	177	{'loss': 18.2859, 'grad_norm': 98.08956146240234, 'learning_rate': 1.4666666666666666e-05, 'epoch': 1.72}
+21737.5s	178	{'loss': 17.8929, 'grad_norm': 40.393592834472656, 'learning_rate': 1.457777777777778e-05, 'epoch': 1.74}
+21972.0s	179	{'loss': 17.7838, 'grad_norm': 40.17646789550781, 'learning_rate': 1.448888888888889e-05, 'epoch': 1.76}
+22206.5s	180	{'loss': 16.6103, 'grad_norm': 84.5858383178711, 'learning_rate': 1.4400000000000001e-05, 'epoch': 1.78}
+22440.9s	181	{'loss': 17.9777, 'grad_norm': 65.68783569335938, 'learning_rate': 1.4311111111111111e-05, 'epoch': 1.8}
+22675.3s	182	{'loss': 17.2367, 'grad_norm': 56.747886657714844, 'learning_rate': 1.4222222222222224e-05, 'epoch': 1.8199999999999998}
+22909.6s	183	{'loss': 16.1182, 'grad_norm': 67.92464447021484, 'learning_rate': 1.4133333333333334e-05, 'epoch': 1.8399999999999999}
+23144.0s	184	{'loss': 16.9999, 'grad_norm': 104.82466888427734, 'learning_rate': 1.4044444444444445e-05, 'epoch': 1.8599999999999999}
+23378.5s	185	{'loss': 16.7383, 'grad_norm': 227.60531616210938, 'learning_rate': 1.3955555555555558e-05, 'epoch': 1.88}
+23612.9s	186	{'loss': 19.1724, 'grad_norm': 266.494873046875, 'learning_rate': 1.3866666666666669e-05, 'epoch': 1.9}
+23847.2s	187	{'loss': 18.2549, 'grad_norm': 50.71694564819336, 'learning_rate': 1.377777777777778e-05, 'epoch': 1.92}
+24081.5s	188	{'loss': 16.5105, 'grad_norm': 42.572200775146484, 'learning_rate': 1.368888888888889e-05, 'epoch': 1.94}
+24316.0s	189	{'loss': 16.0748, 'grad_norm': 57.0798225402832, 'learning_rate': 1.3600000000000002e-05, 'epoch': 1.96}
+24550.4s	190	{'loss': 16.2051, 'grad_norm': 54.37550354003906, 'learning_rate': 1.3511111111111112e-05, 'epoch': 1.98}
+24784.6s	191	{'loss': 15.545, 'grad_norm': 108.5203628540039, 'learning_rate': 1.3422222222222223e-05, 'epoch': 2.0}
+25913.4s	192	{'eval_loss': 1.0566858053207397, 'eval_roc_auc': 0.6595586661579692, 'eval_accuracy': 0.69575, 'eval_precision': 0.3125572868927589, 'eval_recall': 0.422029702970297, 'eval_f1': 0.35913638757240657, 'eval_runtime': 1128.8057, 'eval_samples_per_second': 3.544, 'eval_steps_per_second': 0.886, 'epoch': 2.0}

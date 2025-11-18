@@ -1,0 +1,72 @@
+================================================================================
+156.3s	56	MULTI-TASK LEARNING FOR HOSPITAL READMISSION PREDICTION
+156.3s	57	================================================================================
+156.3s	58	
+156.3s	59	================================================================================
+156.3s	60	LOADING DATA
+156.3s	61	================================================================================
+157.8s	62	✓ Loaded admissions: (374139, 16)
+225.2s	63	✓ Loaded discharge notes: (331731, 7)
+250.0s	64	✓ Loaded radiology notes: (1144023, 7)
+250.0s	65	
+250.0s	66	Combining notes...
+300.9s	67	✓ Final merged data: (374139, 18)
+300.9s	68	✓ Sampled 10000 rows for testing
+300.9s	69	
+300.9s	70	Preparing labels...
+300.9s	71	  - Readmission distribution: {0: 7921, 1: 2079}
+300.9s	72	  - Mortality distribution: {0: 9760, 1: 240}
+300.9s	73	  - Admission types: 9 classes
+300.9s	74	  - Positive weight for readmission: 3.81
+301.6s	75	
+301.6s	76	================================================================================
+301.6s	77	SPLITTING DATA
+301.6s	78	================================================================================
+301.6s	79	✓ Train size: 8000
+301.6s	80	✓ Validation size: 2000
+302.1s	81	
+302.1s	82	================================================================================
+302.1s	83	LOADING TOKENIZER
+302.1s	84	================================================================================
+303.4s	85	✓ Loaded tokenizer: yikuan8/Clinical-Longformer
+303.4s	86	
+303.4s	87	================================================================================
+303.4s	88	CREATING DATASETS
+303.4s	89	================================================================================
+303.4s	90	✓ Train dataset: 8000 samples
+303.4s	91	✓ Validation dataset: 2000 samples
+303.4s	92	
+303.4s	93	================================================================================
+303.4s	94	INITIALIZING MODEL
+303.4s	95	================================================================================
+307.0s	96	Some weights of LongformerModel were not initialized from the model checkpoint at yikuan8/Clinical-Longformer and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+307.0s	97	You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+307.0s	98	
+307.0s	99	Some weights of LongformerModel were not initialized from the model checkpoint at yikuan8/Clinical-Longformer and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+307.0s	100	You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+307.1s	101	✓ Model created with 9 admission type classes
+307.1s	102	
+307.1s	103	================================================================================
+307.1s	104	INITIALIZING TRAINER
+307.1s	105	================================================================================
+308.1s	106	✓ Trainer initialized
+308.1s	107	
+308.1s	108	================================================================================
+308.1s	109	TRAINING MODEL
+308.1s	110	================================================================================
+21277.8s	111	
+21277.8s	112	================================================================================
+21277.8s	113	FINAL EVALUATION (MAIN TASK: 30-DAY READMISSION)
+21277.8s	114	================================================================================
+22379.9s	115	
+22379.9s	116	📊 RESULTS:
+22379.9s	117	  ROC-AUC:   0.6770
+22379.9s	118	  Accuracy:  0.4820
+22379.9s	119	  Precision: 0.2597
+22379.9s	120	  Recall:    0.8053
+22379.9s	121	  F1 Score:  0.3927
+22379.9s	122	
+22379.9s	123	================================================================================
+22379.9s	124	TRAINING COMPLETE!
+22379.9s	125	================================================================================
+22379.9s	126	Model saved to: ./mtl_readmission_model
